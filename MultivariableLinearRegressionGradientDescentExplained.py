@@ -6,6 +6,8 @@ import pandas as pd
 #Get Data
 points = genfromtxt("IQ.csv", delimiter=",",skip_header=1)
 
+print(points)
+
 #Create a numpy array from the input data
 #skiping the header so the array will just consist of floats
 
@@ -40,6 +42,7 @@ LearningRate=0.00005
 N = float(len(points))
 
 LEARNZERO=0.017
+#Results can be improved by adding a specific learning rate to the theta0 term
 
 #Error function:
 #For a point, Error=(ModelPIQ-PIQ)^2
@@ -97,4 +100,8 @@ tthree=(round(tthree, 3))
 
 print("Our final model is: PIQ=%s + %s*Brain %s*Height%s*Weight" % (tzero, tone,ttwo,tthree))
 print("Increase the number of iterations to get a better model")
+
+firstPIQ=round(tzero+(points[0,1]*tone)+(points[0,2]*ttwo)+(points[0,3]*tthree),3)
+print("The predicted PIQ value for the first data point is %s" %(firstPIQ))
+
 print("Check for new coding examples that include feature scaling, and doing multivariable regression using matrices")
