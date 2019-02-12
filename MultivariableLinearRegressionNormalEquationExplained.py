@@ -52,3 +52,7 @@ theta=pd.DataFrame(np.linalg.pinv((X.T).dot(X).values), (X.T).dot(X).columns, (X
 print(theta)
 print("These are the correct theta values, same as using gradient descent, if you use enough iterations")
 print("excecutes MUCH faster than using gradient descent")
+firstPIQ=(X.iloc[:1].dot(theta))
+
+FirstPIQ=round(firstPIQ.ix[0],3)
+print("The predicted PIQ value for the first data point is %s " % (FirstPIQ))
